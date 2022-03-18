@@ -1,7 +1,7 @@
 {
   "name": "dummy",
   "description": "When there is a trigger on a specified schedule, do action",
-  "version": 3,
+  "version": 4,
   "private": true,
   "concurrency": 1,
   "code": {
@@ -47,6 +47,31 @@
     "block": [
       {
         "number": 1,
+        "provider": "google_drive",
+        "name": "search_file_or_folder",
+        "as": "f0290bca",
+        "keyword": "action",
+        "dynamicPickListSelection": {
+          "folderId": {
+            "ids": [
+              "0AFod9pfEtEL6Uk9PVA"
+            ],
+            "titles": [
+              "My Drive"
+            ]
+          }
+        },
+        "toggleCfg": {
+          "folderId": true
+        },
+        "input": {
+          "kind": "Files",
+          "folderId": "0AFod9pfEtEL6Uk9PVA"
+        },
+        "uuid": "097162e4-2399-442f-a8f1-907331d88b84"
+      },
+      {
+        "number": 2,
         "keyword": "if",
         "dynamicPickListSelection": {
         },
@@ -66,7 +91,7 @@
         },
         "block": [
           {
-            "number": 2,
+            "number": 3,
             "provider": "utility",
             "name": "log_message",
             "as": "a13113fb",
@@ -84,7 +109,7 @@
         "uuid": "f1ca6471-9580-4168-b616-d9116e7b181b"
       },
       {
-        "number": 3,
+        "number": 4,
         "keyword": "stop",
         "dynamicPickListSelection": {
         },
@@ -110,6 +135,16 @@
       "provider": "utility",
       "skip_validation": false,
       "account_id": null
+    },
+    {
+      "keyword": "application",
+      "provider": "google_drive",
+      "account_id": {
+        "zip_name": "dev_dummy_drive_001.connection.json",
+        "name": "DEV | Dummy | Drive 001",
+        "folder": ""
+      },
+      "skip_validation": false
     }
   ]
 }
