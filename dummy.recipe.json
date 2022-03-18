@@ -1,7 +1,7 @@
 {
   "name": "dummy",
   "description": "When there is a trigger on a specified schedule, do action",
-  "version": 2,
+  "version": 3,
   "private": true,
   "concurrency": 1,
   "code": {
@@ -47,6 +47,44 @@
     "block": [
       {
         "number": 1,
+        "keyword": "if",
+        "dynamicPickListSelection": {
+        },
+        "toggleCfg": {
+        },
+        "input": {
+          "type": "compound",
+          "operand": "and",
+          "conditions": [
+            {
+              "operand": "equals_to",
+              "lhs": "#{_('data.clock.f3cdd799.scheduled_week')}",
+              "rhs": "123",
+              "uuid": "condition-fa2898ac-3608-44fd-a07a-7d634f1b7830"
+            }
+          ]
+        },
+        "block": [
+          {
+            "number": 2,
+            "provider": "utility",
+            "name": "log_message",
+            "as": "a13113fb",
+            "keyword": "action",
+            "dynamicPickListSelection": {
+            },
+            "toggleCfg": {
+            },
+            "input": {
+              "message": "condition met"
+            },
+            "uuid": "bc6ec2b7-d3bd-4e29-975b-4946453a476c"
+          }
+        ],
+        "uuid": "f1ca6471-9580-4168-b616-d9116e7b181b"
+      },
+      {
+        "number": 3,
         "keyword": "stop",
         "dynamicPickListSelection": {
         },
@@ -64,6 +102,12 @@
     {
       "keyword": "application",
       "provider": "clock",
+      "skip_validation": false,
+      "account_id": null
+    },
+    {
+      "keyword": "application",
+      "provider": "utility",
       "skip_validation": false,
       "account_id": null
     }
